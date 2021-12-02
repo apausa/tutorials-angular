@@ -9,7 +9,7 @@ export class SearchComponent {
 
 
 
-  @ViewChild ('query') query!: ElementRef;
+  @ViewChild ('query') query!: ElementRef<HTMLInputElement>;
 
   search(event: string) {
     console.log(this.query.nativeElement.value);
