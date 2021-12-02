@@ -7,11 +7,10 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class SearchComponent {
 
-
-
   @ViewChild ('query') query!: ElementRef<HTMLInputElement>;
 
-  search(event: string) {
-    console.log(this.query.nativeElement.value);
+  search() {
+    const value = this.query.nativeElement.value
+    console.log(value);
   }
 }
