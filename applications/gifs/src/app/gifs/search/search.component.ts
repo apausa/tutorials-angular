@@ -12,5 +12,6 @@ export class SearchComponent {
   search() {
     const value = this.query.nativeElement.value
     console.log(value);
+    this.query.nativeElement.value = "";
   }
 }
