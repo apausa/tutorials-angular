@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SearchGifsResponse } from '../interfaces/gifs.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class GifsService {
     this._history.unshift(query);
     this._history = this._history.splice(0, 10);
     this.http
-      .get(`${this.API}?api_key=${this.API_KEY}&q=${query}&limit=10`)
-      .subscribe( (response: any) => { 
+      .get<SearchGifsResponse>(`${this.API}?api_key=${this.API_KEY}&q=${query}&limit=10`)
+      .subscribe( (response) => { 
         console.log(response);
         this.results = response.data; 
   })}
