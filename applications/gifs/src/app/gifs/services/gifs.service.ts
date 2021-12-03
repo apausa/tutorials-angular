@@ -13,7 +13,7 @@ export class GifsService {
 
   constructor(private http: HttpClient) {
     if (localStorage.getItem('history')) {
-      this._history = JSON.parse(localStorage.getItem('history')!)
+      this._history = JSON.parse(localStorage.getItem('history')!) || [];
     }
   };
   get history() { return [...this._history] };
