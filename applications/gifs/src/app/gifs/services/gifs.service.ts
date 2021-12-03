@@ -5,12 +5,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GifsService {
-  private API: string = `https://api.giphy.com/v1/gifs/search`
+  private API: string = `https://api.giphy.com/v1/gifs/search`;
   private API_KEY: string = `hsgPiDQDbNOdm8iqgbGb9MDaWPtNZopg`;
   private _history: string[] = [];
-  
+  public results: any[] = [];
+
   constructor(private http: HttpClient) {};
-  get history() { return [...this._history] }
+  get history() { return [...this._history] };
 
   search(query: string) {
     query = query.trim().toLocaleLowerCase();
@@ -18,6 +19,8 @@ export class GifsService {
     this._history = this._history.splice(0, 10);
     this.http
       .get(`${this.API}?api_key=${this.API_KEY}&q=${query}&limit=10`)
-      .subscribe( response => { console.log(response); })
-  }
+      .subscribe( (response: any) => { 
+        console.log(response);
+        this.results = response.data; 
+  })}
 }
