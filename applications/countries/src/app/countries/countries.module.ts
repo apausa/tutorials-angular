@@ -14,6 +14,12 @@ import { DetailsComponent } from './pages/details/details.component';
     RegionComponent,
     DetailsComponent
   ],
+  exports: [
+    CapitalComponent,
+    CountryComponent,
+    RegionComponent,
+    DetailsComponent
+  ],
   imports: [
     CommonModule
   ]
