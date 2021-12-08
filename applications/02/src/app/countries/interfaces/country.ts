@@ -1,5 +1,5 @@
 export interface Country {
-    name:           string;
+    name:           Name;
     topLevelDomain: string[];
     alpha2Code:     string;
     alpha3Code:     string;
@@ -56,4 +56,10 @@ export interface Translations {
     nl: string;
     hr: string;
     fa: string;
+}
+
+export interface Name {
+    common: string,
+    nativeName: string,
+    official: string,
 }
