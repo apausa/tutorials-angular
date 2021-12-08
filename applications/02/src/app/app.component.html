@@ -6,18 +6,22 @@
             <li 
                 class="list-group-item"
                 routerLink="capital"
+                routerLinkActive="active"
             >
                 Capital
             </li>
             <li
                 class="list-group-item"
-                routerLink="country"
+                routerLink="/"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
             >
                 Country
             </li>
             <li
                 class="list-group-item"
                 routerLink="region"
+                routerLinkActive="active"
             >
                 Region
             </li>
