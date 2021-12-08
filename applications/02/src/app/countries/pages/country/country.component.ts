@@ -7,11 +7,16 @@ import { CountryService } from '../../services/country.service';
 })
 export class CountryComponent {
   public term: string = 'Hello world';
+  isError: boolean = false;
   constructor(private countryService: CountryService) { }
 
   search() {
+    this.isError = false;
     this.countryService
       .searchCountry(this.term)
-      .subscribe((response) => {console.log(response)});
+      .subscribe(
+        (response) => {console.log(response)},
+        (error) => { this.isError = true }
+      );
   }
 }
