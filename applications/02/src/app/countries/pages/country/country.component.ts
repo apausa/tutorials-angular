@@ -12,6 +12,6 @@ export class CountryComponent {
   search() {
     this.countryService
       .searchCountry(this.term)
-      .subscribe( response => console.log(response));
+      .subscribe((response) => {console.log(response)});
   }
 }
