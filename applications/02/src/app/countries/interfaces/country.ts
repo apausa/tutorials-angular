@@ -2,6 +2,9 @@ export interface Country {
     name:           Name;
     topLevelDomain: string[];
     alpha2Code:     string;
+    cca2:           string,
+    cca3:           string,
+    ccn3:           string,
     alpha3Code:     string;
     callingCodes:   string[];
     capital:        string;

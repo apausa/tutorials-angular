@@ -5,7 +5,7 @@ import { CountryComponent } from './pages/country/country.component';
 import { RegionComponent } from './pages/region/region.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -19,11 +19,12 @@ import { FormsModule } from '@angular/forms';
     CapitalComponent,
     CountryComponent,
     RegionComponent,
-    DetailsComponent
+    DetailsComponent,
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
   ]
 })
 export class CountriesModule { }

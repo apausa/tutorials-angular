@@ -23,7 +23,7 @@
     We couldn't find anything related to your search
 </div>
 <div 
-    *ngIf="!isError"
+    *ngIf="countries.length > 0"
     class="row"
 >
     <div class="col">
@@ -43,7 +43,7 @@
                     <td>{{country.name.common}}</td>
                     <td>{{country.population}}</td>
                     <td>
-                        <a href="pais/cri">
+                        <a [routerLink]="['/country', country.cca2]">
                             Ver...
                         </a>
                     </td>
