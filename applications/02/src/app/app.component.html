@@ -3,16 +3,25 @@
         <h2>Search by:</h2>
         <hr>
         <ul class="list-group">
-            <li class="list-group-item">Capital</li>
-            <li class="list-group-item">Country</li>
-            <li class="list-group-item">Region</li>
+            <li class="list-group-item">
+                <a href="/capital">
+                    Capital
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="/country">
+                    Country
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="/region">
+                    Region
+                </a>
+            </li>
         </ul>
     </div>
     <div class="col">
-        <app-capital></app-capital>
-        <app-country></app-country>
-        <app-details></app-details>
-        <app-region></app-region>
+        <router-outlet></router-outlet>
     </div>
 </div>
 
