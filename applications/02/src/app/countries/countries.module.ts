@@ -7,6 +7,7 @@ import { DetailsComponent } from './pages/details/details.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TableComponent } from './components/table/table.component';
+import { BarComponent } from './components/bar/bar.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { TableComponent } from './components/table/table.component';
     CountryComponent,
     RegionComponent,
     DetailsComponent,
-    TableComponent
+    TableComponent,
+    BarComponent
   ],
   exports: [
     CapitalComponent,
