@@ -1,1 +1,41 @@
-<p>country works!</p>
+<h2>Search by Country</h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <form 
+            autocompete="off"
+            (ngSubmit)="search()">
+            <input
+                type="text"
+                name="term"
+                paceholder="Search by country"
+                [(ngModel)]="term"
+                class="form-control"
+            >
+        </form>
+    </div>
+</div>
+<hr>
+<div class="alert alert-danger">
+    We couldn't find anything related to your search
+</div>
+<div class="row">
+    <div class="col">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th> # </th>
+                    <th>Flag</th>
+                    <th>Name</th>
+                    <th>Population</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

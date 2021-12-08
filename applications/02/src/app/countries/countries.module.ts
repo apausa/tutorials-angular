@@ -4,6 +4,7 @@ import { CapitalComponent } from './pages/capital/capital.component';
 import { CountryComponent } from './pages/country/country.component';
 import { RegionComponent } from './pages/region/region.component';
 import { DetailsComponent } from './pages/details/details.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { DetailsComponent } from './pages/details/details.component';
     DetailsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class CountriesModule { }
