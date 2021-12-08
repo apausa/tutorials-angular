@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { CountryService } from '../../services/country.service';
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
@@ -7,8 +7,11 @@ import { Component } from '@angular/core';
 })
 export class CountryComponent {
   public term: string = 'Hello world';
-  constructor() { }
+  constructor(private countryService: CountryService) { }
+
   search() {
-    console.log('hello')
+    this.countryService
+      .searchCountry(this.term)
+      .subscribe( response => console.log(response));
   }
 }
