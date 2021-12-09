@@ -1,1 +1,23 @@
-<p>table works!</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th> # </th>
+            <th>Flag</th>
+            <th>Name</th>
+            <th>Population</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let country of countries">
+            <td>#{{countries.indexOf(country) + 1}}</td>
+            <td>{{country.flag}}<img class="small-flag"></td>
+            <td>{{country.name.common}}</td>
+            <td>{{country.population}}</td>
+            <td>
+                <a [routerLink]="['/country', country.cca2]">
+                    Ver...
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

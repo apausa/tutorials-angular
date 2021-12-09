@@ -14,5 +14,12 @@ export class CountryService {
     const url = `${ this.COUNTRIES_API }/name/${ term }`;
     return this.http.get<Country[]>( url );
   }
+  searchCapital(term: string): Observable<Country[]> {
+    const url = `${ this.COUNTRIES_API }/capital/${ term }`;
+    return this.http.get<Country[]>( url );
+  }
+  searchRegion(term: string): Observable<Country[]> {
+    const url = `${ this.COUNTRIES_API }/region/${ term }`;
+    return this.http.get<Country[]>( url );
+  }
 }
-

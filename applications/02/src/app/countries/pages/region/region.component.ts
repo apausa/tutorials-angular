@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CountryService } from '../../services/country.service';
+import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-region',
   templateUrl: './region.component.html',
   styleUrls: ['./region.component.scss']
 })
-export class RegionComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class RegionComponent {
+  public term: string = '';
+  public isError: boolean = false;
+  public countries: Country[] = [];
+  constructor(private countryService: CountryService) { }
+  
+  search( term: string ) {
+    this.isError = false;
+    this.term = term;
+    this.countryService
+      .searchRegion(this.term)
+      .subscribe(
+        (response) => {
+          console.log(this.countries);
+          this.countries = response;
+        },
+        (error) => {
+          this.isError = true;
+          this.countries = [];
+        }
+      );
+    this.term = '';
   }
-
+  suggestions( term:string ) {
+    this.isError = false; 
+  }
 }
