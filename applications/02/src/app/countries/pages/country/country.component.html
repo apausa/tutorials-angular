@@ -1,10 +1,20 @@
 <h2>Search by Country</h2>
 <hr>
-<app-bar
-    [isError]="isError"
-    [term]="term"
+<div class="row">
+    <div class="col">
+        <app-bar
+            (onEnter)="search( $event )"
+        >
+        </app-bar>
+    </div>
+</div>
+<hr>
+<div
+    *ngIf="isError"
+    class="alert alert-danger"
 >
-</app-bar>
+    We couldn't find anything related to your search
+</div>
 <div 
     *ngIf="countries.length > 0"
     class="row"

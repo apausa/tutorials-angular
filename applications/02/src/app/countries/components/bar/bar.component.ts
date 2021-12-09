@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-bar',
@@ -6,14 +7,17 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./bar.component.scss']
 })
 export class BarComponent {
+  @Output() onEnter: EventEmitter<string> = new EventEmitter();
+  @Output() onDebounce: EventEmitter<string> = new EventEmitter();
 
-  @Input() term: string = '';
-  @Input() isError: boolean = false;
+  public debouncer: Subject<string> = new Subject();
+  public term: string = '';
 
-  constructor() { }
-
-  search() {
-    
+  ngOnInit() {
+    this.debouncer.subscribe( value => {
+      console.log('debouncer', value)
+    })
   }
-
+  search() { this.onEnter.emit( this.term ); }
+  isPressed() { this.debouncer.next(this.term); }
 }

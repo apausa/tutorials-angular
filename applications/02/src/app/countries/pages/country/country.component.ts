@@ -13,7 +13,7 @@ export class CountryComponent {
   public countries: Country[] = [];
   constructor(private countryService: CountryService) { }
 
-  search() {
+  search( term: string ) {
     this.isError = false;
     this.countryService
       .searchCountry(this.term)
