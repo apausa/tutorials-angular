@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CountryService } from '../../services/country.service';
+import { ActivatedRoute } from '@angular/router'; 
+import { switchMap, tap } from 'rxjs';
 import { Country } from '../../interfaces/country';
+
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-details',
@@ -18,15 +20,10 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params
-      .subscribe( ({ id }) => {
-        this.countryService
-          .getCountryByAlpha(id)
-          .subscribe(
-            country => {
-              console.log(country);
-              this.country = country;
-            },
-          )
+      .pipe( switchMap(({ id }): any => this.countryService.getCountryByAlpha(id)))
+      .subscribe((country): any => {
+        this.country = country
+        console.log(country);
       })
   }
 }

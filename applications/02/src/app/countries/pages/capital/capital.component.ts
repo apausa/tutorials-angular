@@ -12,9 +12,7 @@ export class CapitalComponent {
   public isError: boolean = false;
   public countries: Country[] = [];
   constructor(private countryService: CountryService) { }
-
-
-
+  
   search( term: string ) {
     this.isError = false;
     this.term = term;
