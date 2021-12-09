@@ -1,1 +1,22 @@
-<p>bar works!</p>
+<div class="row">
+    <div class="col">
+        <form 
+            autocompete="off"
+            (ngSubmit)="search()">
+            <input
+                type="text"
+                name="term"
+                paceholder="Search by country"
+                [(ngModel)]="term"
+                class="form-control"
+            >
+        </form>
+    </div>
+</div>
+<hr>
+<div
+    *ngIf="isError"
+    class="alert alert-danger"
+>
+    We couldn't find anything related to your search
+</div>

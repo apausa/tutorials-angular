@@ -1,54 +1,15 @@
 <h2>Search by Country</h2>
 <hr>
-<div class="row">
-    <div class="col">
-        <form 
-            autocompete="off"
-            (ngSubmit)="search()">
-            <input
-                type="text"
-                name="term"
-                paceholder="Search by country"
-                [(ngModel)]="term"
-                class="form-control"
-            >
-        </form>
-    </div>
-</div>
-<hr>
-<div
-    *ngIf="isError"
-    class="alert alert-danger"
+<app-bar
+    [isError]="isError"
+    [term]="term"
 >
-    We couldn't find anything related to your search
-</div>
+</app-bar>
 <div 
     *ngIf="countries.length > 0"
     class="row"
 >
     <div class="col">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th> # </th>
-                    <th>Flag</th>
-                    <th>Name</th>
-                    <th>Population</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let country of countries">
-                    <td>#{{countries.indexOf(country) + 1}}</td>
-                    <td>{{country.flag}}<img class="small-flag"></td>
-                    <td>{{country.name.common}}</td>
-                    <td>{{country.population}}</td>
-                    <td>
-                        <a [routerLink]="['/country', country.cca2]">
-                            Ver...
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <app-table [countries]="countries"></app-table>
     </div>
 </div>
