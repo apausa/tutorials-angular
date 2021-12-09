@@ -4,6 +4,7 @@
     <div class="col">
         <app-bar
             (onEnter)="search( $event )"
+            (onDebounce)="suggestions( $event )"
         >
         </app-bar>
     </div>

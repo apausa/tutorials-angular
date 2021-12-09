@@ -14,9 +14,10 @@ export class BarComponent {
   public term: string = '';
 
   ngOnInit() {
-    this.debouncer.subscribe( value => {
-      console.log('debouncer', value)
-    })
+    this.debouncer
+      .subscribe( value => {
+        this.onDebounce.emit(value);
+      })
   }
   search() { this.onEnter.emit( this.term ); }
   isPressed() { this.debouncer.next(this.term); }

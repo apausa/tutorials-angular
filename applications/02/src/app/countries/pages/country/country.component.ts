@@ -15,12 +15,13 @@ export class CountryComponent {
 
   search( term: string ) {
     this.isError = false;
+    this.term = term;
     this.countryService
       .searchCountry(this.term)
       .subscribe(
         (response) => {
-          this.countries = response;
           console.log(this.countries);
+          this.countries = response;
         },
         (error) => {
           this.isError = true;
@@ -28,5 +29,8 @@ export class CountryComponent {
         }
       );
     this.term = '';
+  }
+  suggestions( term:string ) {
+    this.isError = false; 
   }
 }
