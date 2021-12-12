@@ -13,10 +13,11 @@ export class CountryComponent {
   public isError: boolean = false;
   public countries: Country[] = [];
   public suggested: Country[] = [];
-  
+  public isSuggested: boolean = false;
   constructor(private countryService: CountryService) { }
 
   search( term: string ) {
+    this.isSuggested = false;
     this.isError = false;
     this.term = term;
     this.countryService
@@ -32,11 +33,15 @@ export class CountryComponent {
   }
   suggestions( term: string ) {
     this.isError = false; 
+    this.isSuggested = true;
     this.countryService
       .searchCountry(term)
       .subscribe(
         (response) => {this.suggested = response.splice(0, 3)},
         (response) => {this.suggested = []},
       )
+  }
+  render( term: string ) {
+    this.search( term );
   }
 }
