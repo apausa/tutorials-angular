@@ -8,7 +8,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let country of countries">
+        <tr
+            *ngFor="let country of countries"
+            class="animate__animated animate__fadeIn animate__faster"
+        >
             <td>#{{countries.indexOf(country) + 1}}</td>
             <td>{{country.flag}}<img class="small-flag"></td>
             <td>{{country.name.common}}</td>

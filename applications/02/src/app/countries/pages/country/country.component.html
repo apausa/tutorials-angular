@@ -11,6 +11,19 @@
             </app-bar>
         </div>
     </div>
+    <ul class="list-group">
+        <li 
+            *ngFor="let country of suggested"
+            class="list-group-item list-group-item-action"
+        >
+        <a
+            class="nav-link"
+            [routerLink]="['/country', country.cca2]"
+        >
+            {{ country.name.common }}
+        </a>
+        </li>
+    </ul>
 </div>
 <hr>
 <div
