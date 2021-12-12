@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CountryService } from '../../services/country.service';
+import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-region',
@@ -8,8 +10,10 @@ import { Component } from '@angular/core';
 export class RegionComponent {
   public REGIONS: string[] = ['africa', 'americas', 'asia', 'europe', 'oceania'];
   public isOn: string = '';
+  public isError: boolean = false;
+  public countries: Country[] = [];
 
-  constructor () {};
+  constructor (private countryService: CountryService) {};
 
   retrieveClassOf(region: string): string {
     return (region === this.isOn)
@@ -19,5 +23,10 @@ export class RegionComponent {
 
   turnOn(region: string) {
     this.isOn = region;
+    this.countryService
+      .searchRegion(this.isOn)
+      .subscribe(
+        (response) => { this.countries = response }
+      )
   }
 }
