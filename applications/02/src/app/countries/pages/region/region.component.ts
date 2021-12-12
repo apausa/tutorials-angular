@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { CountryService } from '../../services/country.service';
-import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-region',
@@ -8,29 +6,18 @@ import { Country } from '../../interfaces/country';
   styleUrls: ['./region.component.scss']
 })
 export class RegionComponent {
-  public term: string = '';
-  public isError: boolean = false;
-  public countries: Country[] = [];
-  constructor(private countryService: CountryService) { }
-  
-  search( term: string ) {
-    this.isError = false;
-    this.term = term;
-    this.countryService
-      .searchRegion(this.term)
-      .subscribe(
-        (response) => {
-          console.log(this.countries);
-          this.countries = response;
-        },
-        (error) => {
-          this.isError = true;
-          this.countries = [];
-        }
-      );
-    this.term = '';
+  public REGIONS: string[] = ['africa', 'americas', 'asia', 'europe', 'oceania'];
+  public isOn: string = '';
+
+  constructor () {};
+
+  retrieveClassOf(region: string): string {
+    return (region === this.isOn)
+    ? 'btn btn-primary'
+    : 'btn-outline-primary'
   }
-  suggestions( term:string ) {
-    this.isError = false; 
+
+  turnOn(region: string) {
+    this.isOn = region;
   }
 }
