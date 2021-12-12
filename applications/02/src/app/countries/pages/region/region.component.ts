@@ -22,6 +22,7 @@ export class RegionComponent {
   }
 
   turnOn(region: string) {
+    if ( region === this.isOn) return;
     this.isOn = region;
     this.countryService
       .searchRegion(this.isOn)
