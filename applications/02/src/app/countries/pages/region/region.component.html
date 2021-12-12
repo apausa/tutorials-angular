@@ -1,14 +1,16 @@
-<h2>By Region</h2>
-<hr>
-<div class="row">
-    <div class="col">
-        <button
-            *ngFor="let region of REGIONS"
-            [class]="retrieveClassOf(region)"
-            (click)="turnOn(region)"
-        >
-            {{ region | titlecase }}
-        </button>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h2>By Region</h2>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <button
+                *ngFor="let region of REGIONS"
+                [class]="retrieveClassOf(region)"
+                (click)="turnOn(region)"
+            >
+                {{ region | titlecase }}
+            </button>
+        </div>
     </div>
 </div>
 <hr>

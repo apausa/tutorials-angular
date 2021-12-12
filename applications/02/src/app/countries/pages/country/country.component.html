@@ -1,13 +1,15 @@
-<h2>Search by Country</h2>
-<hr>
-<div class="row">
-    <div class="col">
-        <app-bar
-            (onEnter)="search( $event )"
-            (onDebounce)="suggestions( $event )"
-            placeholder="Search by country..."
-        >
-        </app-bar>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h2>Search by Country</h2>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <app-bar
+                (onEnter)="search( $event )"
+                (onDebounce)="suggestions( $event )"
+                placeholder="Search by country..."
+            >
+            </app-bar>
+        </div>
     </div>
 </div>
 <hr>

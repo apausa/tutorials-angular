@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interfaces/country';
+import 'animate.css';
 
 @Component({
   selector: 'app-country',
